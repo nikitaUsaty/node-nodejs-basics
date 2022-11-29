@@ -1,5 +1,21 @@
-const remove = async () => {
-    // Write your code here 
-};
+import fs from 'fs'
 
-await remove();
+const remove = async () => {
+  const path = 'src/fs/files/fileToRemove.txt'
+
+  if (!fs.existsSync(path)) {
+    throw new Error(`TFS operation failed`)
+  } else {
+    fs.unlink(path, (err) => {
+      console.log('\x1b[42m', 'File deleted!')
+
+      if (err) {
+        console.error(err)
+
+        return
+      }
+    })
+  }
+}
+
+await remove()

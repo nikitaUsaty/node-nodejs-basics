@@ -1,5 +1,21 @@
-const list = async () => {
-    // Write your code here 
-};
+import fs from 'fs'
 
-await list();
+const list = async () => {
+  const dir = `src/fs/files`
+
+  if (!fs.existsSync(dir)) {
+    throw new Error(`TFS operation failed`)
+  } else {
+    fs.readdir(dir, (err, files) => {
+      if (err) {
+        throw err
+      }
+
+      files.forEach((file) => {
+        console.log(file)
+      })
+    })
+  }
+}
+
+await list()
