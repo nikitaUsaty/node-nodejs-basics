@@ -1,5 +1,8 @@
 const parseEnv = () => {
-    // Write your code here 
-};
+  let first = process.env.RSS_foo
+  let second = process.env.RSS_bar
 
-parseEnv();
+  console.log(`RSS_foo = ${first}; RSS_bar = ${second}`)
+}
+
+parseEnv()
