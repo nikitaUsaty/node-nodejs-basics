@@ -1,5 +1,13 @@
-const spawnChildProcess = async (args) => {
-    // Write your code here
-};
+import { spawn } from 'node:child_process'
 
-spawnChildProcess();
+const spawnChildProcess = async (args) => {
+  const child = spawn('node', ['./src/cp/files/script.js', ...args])
+
+  process.stdin.pipe(child.stdin)
+
+  child.stdout.on('data', (data) => {
+    console.log(data.toString())
+  })
+}
+
+spawnChildProcess(['--one', '--two', '--three'])
