@@ -45,7 +45,6 @@ await performCalculations()
 
 const sortArr = (arr) => {
   let sortedArr = arr.sort((a, b) => a.order - b.order)
-
   sortedArr.map((el) => delete el.order)
 
   return sortedArr
